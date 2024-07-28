@@ -6,7 +6,7 @@
     <title>Student List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -15,7 +15,10 @@
     <style>
         body{
             margin-top:20px;
-            background-image: url('https://t3.ftcdn.net/jpg/06/39/61/94/240_F_639619461_lPeuANkarLCORSetPnFA5pVMfEopHmpc.jpg');
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP07BZZ3RvRodDMRyFUAl5yVvnA73eBzNOWg&s');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             height: 100vh; 
         }
         .blog-grid {
@@ -154,26 +157,28 @@
         toastr.success(" {{ Session::get('success')}}")
         @endif
     </script>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3">
-                            <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Add New Student">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                            </a>
-                            <!-- Add the Logout Form here -->
-                            <form method="POST" action="{{ route('logout') }}" accept-charset="UTF-8" style="display:inline">
-                                @csrf
-                                <button type="submit" class="btn btn-warning btn-sm" title="Logout">
-                                    <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout
-                                </button>
-                            </form>
-                        </div>
-                        
-                        <form method="POST" action="{{ url('/students/delete-all') }}" accept-charset="UTF-8" style="display:inline">
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-sm" title="Delete All Students" onclick="return confirm('Confirm delete all blogs?')">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete All
-                            </button>
-                        </form>
+                   <div class="card-body">
+    <div class="d-flex justify-content-between mb-3">
+        <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Add New Student">
+            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+        </a>
+        <!-- Add the Logout Form here -->
+        <form method="POST" action="{{ route('logout') }}" accept-charset="UTF-8" style="display:inline">
+            @csrf
+            <button type="submit" class="btn btn-warning btn-sm" title="Logout">
+                <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout
+            </button>
+        </form>
+    </div>
+    
+    <form method="POST" action="{{ url('/students/delete-all') }}" accept-charset="UTF-8" style="display:inline">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-danger btn-sm" title="Delete All Students" onclick="return confirm('Confirm delete all students?')">
+            <i class="fa fa-trash" aria-hidden="true"></i> Delete All
+        </button>
+    </form>
+</div>
+
 
                         <br/><br/>
                         <div class="container">
@@ -193,16 +198,17 @@
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Edit Student">
-                                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
-                                                            </a>
+                                                        <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Edit Student">
+                                                          <i class="fa fa-edit" aria-hidden="true"></i> Edit
+                                                        </a>
+
                                                         </li>
                                                         <li>
                                                             <form method="POST" action="{{ url('/student/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                                 @method('DELETE')
                                                                 @csrf
                                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm('Confirm delete?')">
-                                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                                                    <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                                                 </button>
                                                             </form>
                                                         </li>

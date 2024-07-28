@@ -3,8 +3,11 @@
 
 <style>
         body {
-            background-image: url('https://t3.ftcdn.net/jpg/06/39/61/94/240_F_639619461_lPeuANkarLCORSetPnFA5pVMfEopHmpc.jpg');
-           
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP07BZZ3RvRodDMRyFUAl5yVvnA73eBzNOWg&s');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; 
             margin: 0;
             height: 100vh;
         }
