@@ -6,6 +6,12 @@
     <title>Student List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <style>
         body{
             margin-top:20px;
@@ -138,7 +144,16 @@
                     <div class="card-header">
                         <h2>Blogs Lists</h2>
                     </div>
-                    
+                    <script>
+        @if(Session::has('success'))
+        toastr.options = 
+        {
+            "closeButton":true,
+            "progressBar":true
+        }
+        toastr.success(" {{ Session::get('success')}}")
+        @endif
+    </script>
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
                             <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Add New Student">
